@@ -16,6 +16,7 @@ DOMAINS=$(bashio::config 'domains')
 KEYFILE=$(bashio::config 'keyfile')
 CERTFILE=$(bashio::config 'certfile')
 CHALLENGE=$(bashio::config 'challenge')
+PREFERRED_PROFILE=$(bashio::config 'preferred-profile')
 DNS_PROVIDER=$(bashio::config 'dns.provider')
 ACME_SERVER=$(bashio::config 'acme_server')
 ACME_ROOT_CA_CERT=$(bashio::config 'acme_root_ca_cert')
@@ -417,6 +418,7 @@ certbot certonly --non-interactive --keep-until-expiring --expand \
     --cert-name "${DOMAIN_ARR[1]}" "${DOMAIN_ARR[@]}" \
     --config-dir "$CERT_DIR" --work-dir "$WORK_DIR" \
     --preferred-challenges "$CHALLENGE" \
+    --preferred-profile "$PREFERRED_PROFILE" \
     "${ACME_ARGUMENTS[@]}" \
     "${EAB_ARGUMENTS[@]}"
 
