@@ -20,6 +20,7 @@ options:
   keyfile: privkey.pem
   certfile: fullchain.pem
   challenge: http
+  preferred-profile: shortlived
   dns: {}
 ports:
   80/tcp: 80
@@ -30,6 +31,7 @@ schema:
   keyfile: str
   certfile: str
   challenge: list(dns|http)
+  preferred-profile: str
   dns:
     # Note: When configuring DNS in the UI, only copy the attributes below this
     # line (e.g., 'provider: dns-cloudflare', 'cloudflare_email: ...') into the
